@@ -33,8 +33,6 @@ export const reducer = (
   state = addressDataInitialState,
   action: ActionTypesUnion
 ) => {
-  console.log(action);
-
   switch (action.type) {
     case ActionTypes.LOGIN_SUCCESS:
       return {

@@ -54,6 +54,7 @@ export const reducer = (state = addressDataInitialState, action: ActionTypesUnio
 			return {
 				...state,
 				pieChartData: [],
+				ethBalance: 0,
 				address: '',
 				tokens: null,
 			}		

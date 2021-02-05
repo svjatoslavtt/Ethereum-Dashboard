@@ -68,10 +68,12 @@ const Home: React.FC<HomeTypes> = ({ viewAddress }) => {
         <SearchAddress />
 
         {viewAddress && (
-          <section className='w-full items-center flex justify-between mb-5 bg-white p-4 rounded-md'>
-            <div className='flex flex-col w-ful'>
+          <section className='w-full sm:flex-row sm:items-center flex justify-between mb-5 bg-white p-4 rounded-md flex-col'>
+            <div className='flex flex-col w-full sm:mb-0 mb-3'>
               <span className='text-2xl mb-2'>Address</span>
-              <span className='text-md'>{viewAddress}</span>
+              <span className='text-md block overflow-hidden overflow-ellipsis'>
+                {viewAddress}
+              </span>
             </div>
 
             <button
@@ -85,8 +87,8 @@ const Home: React.FC<HomeTypes> = ({ viewAddress }) => {
 
         <section className='bg-white rounded-md p-4'>
           <Section title='Asset distribution'>
-            <div className='flex justify-between'>
-              <div className='flex items-center justify-center w-8/12'>
+            <div className='w-full flex md:flex-row md:justify-between flex-col items-center'>
+              <div className='flex items-center justify-center w-8/12 md:mb-0 mb-16'>
                 {!isLoading ? (
                   pieChartTotalValue ? (
                     <div className='w-full flex items-center flex-col'>
@@ -115,7 +117,7 @@ const Home: React.FC<HomeTypes> = ({ viewAddress }) => {
                 )}
               </div>
 
-              <div className='w-3/12 flex flex-col justify-center'>
+              <div className='md:w-3/12 flex flex-col md:justify-center w-full'>
                 <Asset
                   title='eth balance'
                   balance={`${formattedData.eth} eth`}

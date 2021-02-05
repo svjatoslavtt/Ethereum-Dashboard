@@ -10,4 +10,4 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The project has three routes such as `/` and `/:address`.
+The project has two routes such as `/` and `/:address`.

@@ -16,6 +16,7 @@ export type AddressStateType = {
   address: string;
   viewAddress: string;
   loading: boolean;
+  error: string;
 };
 
 export type TokenItemType = {

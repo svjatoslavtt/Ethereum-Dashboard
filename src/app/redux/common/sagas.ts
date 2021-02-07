@@ -12,7 +12,7 @@ function* login() {
     yield localStorage.setItem('address', data[0]);
     yield put(Actions.loginSuccess({ address: data[0] as string }));
   } catch (err) {
-    yield put(Actions.loginFailed(err));
+    yield put(Actions.loginFailed({ message: err }));
   }
 }
 
@@ -22,13 +22,21 @@ function* getTokens(action: {
 }) {
   try {
     const { address } = action.payload;
-    const { data }: { data: AddressPayloadType } = yield call(
+    const {
+      data,
+      error_message,
+    }: { data: AddressPayloadType; error_message: string | null } = yield call(
       request,
       `https://api.covalenthq.com/v1/1/address/${address}/balances_v2/`
     );
-    yield put(Actions.getBalancesSuccess(data));
+
+    if (!error_message) {
+      yield put(Actions.getBalancesSuccess(data));
+    } else {
+      yield put(Actions.getBalancesFailed({ message: error_message }));
+    }
   } catch (err) {
-    yield put(Actions.getBalancesFailed(err));
+    yield put(Actions.getBalancesFailed({ message: err }));
   }
 }
 

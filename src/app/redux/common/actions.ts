@@ -1,5 +1,7 @@
 import { action, ActionType } from 'typesafe-actions';
 
+import { AddressPayloadType } from '../../shared/types/address.types';
+
 export enum ActionTypes {
   LOGIN_REQUEST = 'LOGIN_REQUEST',
   LOGIN_SUCCESS = 'LOGIN_SUCCESS',
@@ -20,15 +22,16 @@ export const Actions = {
   loginRequest: () => action(ActionTypes.LOGIN_REQUEST),
   loginSuccess: (payload: { address: string }) =>
     action(ActionTypes.LOGIN_SUCCESS, payload),
-  loginFailed: (payload: any) => action(ActionTypes.LOGIN_FAILED, payload),
+  loginFailed: (payload: { message: string }) =>
+    action(ActionTypes.LOGIN_FAILED, payload),
 
   logout: () => action(ActionTypes.LOGOUT),
 
   getBalancesRequest: (payload: { address: string }) =>
     action(ActionTypes.GET_BALANCES_REQUEST, payload),
-  getBalancesSuccess: (payload: any) =>
+  getBalancesSuccess: (payload: AddressPayloadType) =>
     action(ActionTypes.GET_BALANCES_SUCCESS, payload),
-  getBalancesFailed: (payload: any) =>
+  getBalancesFailed: (payload: { message: string }) =>
     action(ActionTypes.GET_BALANCES_FAILED, payload),
 
   switchAccount: (payload: { address: string }) =>

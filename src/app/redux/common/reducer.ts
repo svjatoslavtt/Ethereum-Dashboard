@@ -12,6 +12,7 @@ const addressDataInitialState: AddressStateType = {
   address: localStorage.getItem('address') ?? '',
   viewAddress: '',
   loading: false,
+  error: '',
 };
 
 export const reducer = (
@@ -23,6 +24,11 @@ export const reducer = (
       return {
         ...state,
         address: action.payload.address,
+      };
+    case ActionTypes.LOGIN_FAILED:
+      return {
+        ...state,
+        error: action.payload.message,
       };
     case ActionTypes.SWITCH_ACCOUNT:
       return {
@@ -53,9 +59,10 @@ export const reducer = (
       return {
         ...state,
         loading: false,
+        error: action.payload.message,
       };
     case ActionTypes.GET_BALANCES_SUCCESS:
-      const { items } = action.payload;
+      const { items }: { items: TokenItemType[] } = action.payload;
 
       const filteredItems =
         items &&
@@ -76,7 +83,7 @@ export const reducer = (
       return {
         ...state,
         pieChartData,
-        ethBalance: Number(findEthToken.balance),
+        ethBalance: findEthToken ? Number(findEthToken.balance) : 0,
         tokens: {
           limit: filteredItems,
           length: items.length,

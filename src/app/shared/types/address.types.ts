@@ -1,5 +1,5 @@
 type TokenType = {
-  limit: any;
+  limit: TokenItemType[];
   length: number;
 };
 

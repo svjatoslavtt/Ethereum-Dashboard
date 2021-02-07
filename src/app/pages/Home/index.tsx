@@ -8,8 +8,8 @@ import Token from './components/Token';
 import ChartPart from './components/ChartPart';
 import SearchAddress from './components/SearchAddress';
 
-import Section from '../../components/Section';
-import Header from '../../components/Header';
+import Section from '../../shared/components/Section';
+import Header from '../../shared/components/Header';
 import {
   getAddress,
   getEthBalance,
@@ -17,8 +17,8 @@ import {
   getPieChartData,
   getTokens,
 } from '../../redux/common/selectors';
-import { PieChartType } from '../../redux/common/reducer';
 import { Actions } from '../../redux/common/actions';
+import { PieChartType } from '../../shared/types/address.types';
 
 type HomeTypes = {
   viewAddress: string;

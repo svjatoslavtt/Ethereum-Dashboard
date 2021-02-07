@@ -2,8 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Actions } from '../../redux/common/actions';
-import { getAddress } from '../../redux/common/selectors';
+import { Actions } from '../../../redux/common/actions';
+import { getAddress } from '../../../redux/common/selectors';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();

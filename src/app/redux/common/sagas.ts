@@ -2,7 +2,7 @@ import { all, call, put, takeEvery } from 'redux-saga/effects';
 
 import { Actions, ActionTypes, ActionTypesUnion } from './actions';
 
-import { request } from '../../utils/request';
+import { request } from '../../shared/utils/request';
 
 function* login() {
   try {

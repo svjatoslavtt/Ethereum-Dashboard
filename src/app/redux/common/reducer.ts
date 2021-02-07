@@ -1,24 +1,6 @@
 import { ActionTypes, ActionTypesUnion } from './actions';
 
-type TokenType = {
-  limit: any;
-  length: number;
-};
-
-export type PieChartType = {
-  value: number;
-  title: string;
-  color: string;
-};
-
-export type AddressState = {
-  ethBalance: number;
-  pieChartData: PieChartType[];
-  tokens: TokenType | null;
-  address: string;
-  viewAddress: string;
-  loading: boolean;
-};
+import { AddressState } from '../../shared/types/address.types';
 
 const addressDataInitialState: AddressState = {
   ethBalance: 0,

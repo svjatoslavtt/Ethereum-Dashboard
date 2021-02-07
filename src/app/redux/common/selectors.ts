@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
-import { AddressState } from './reducer';
-
 import { RootState } from '../store';
+
+import { AddressState } from '../../shared/types/address.types';
 
 const getAddressData = (state: RootState) => state.addressData;
 

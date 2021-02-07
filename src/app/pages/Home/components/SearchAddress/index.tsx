@@ -40,10 +40,7 @@ const SearchAddress: React.FC = () => {
         onChange={handleInputChange}
         value={searchAddress.address}
       />
-      <button
-        // onClick={handleSubmitAddress}
-        className='border rounded-r-md border-l-0 hover:bg-gray-700 hover:text-white transition-all focus:outline-none py-2 px-5 shadow-inner'
-      >
+      <button className='border rounded-r-md border-l-0 hover:bg-gray-700 hover:text-white transition-all focus:outline-none py-2 px-5 shadow-inner'>
         Search
       </button>
     </form>

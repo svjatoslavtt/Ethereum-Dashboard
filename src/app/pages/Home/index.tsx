@@ -18,7 +18,7 @@ import {
   getTokens,
 } from '../../redux/common/selectors';
 import { Actions } from '../../redux/common/actions';
-import { PieChartType } from '../../shared/types/address.types';
+import { PieChartType, TokenItemType } from '../../shared/types/address.types';
 
 type HomeTypes = {
   viewAddress: string;
@@ -145,7 +145,7 @@ const Home: React.FC<HomeTypes> = ({ viewAddress }) => {
                     <tbody>
                       {tokens &&
                         tokens.limit &&
-                        tokens.limit.map((item: any, idx: number) => {
+                        tokens.limit.map((item: TokenItemType, idx: number) => {
                           return (
                             <Token
                               key={idx}

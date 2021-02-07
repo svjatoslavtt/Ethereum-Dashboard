@@ -26,7 +26,7 @@ export type TokenItemType = {
   contract_address: string;
   logo_url: string;
   type: string;
-  balance: number;
+  balance: string;
   quote_rate: number;
   quote: number;
   nft_data: null;

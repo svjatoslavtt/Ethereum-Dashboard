@@ -23,7 +23,7 @@ function* getTokens(action: {
     const { address } = action.payload;
     const { data } = yield call(
       request,
-      process.env.REACT_APP_API + `/v1/1/address/${address}/balances_v2/`
+      `https://api.covalenthq.com/v1/1/address/${address}/balances_v2/`
     );
     yield put(Actions.getBalancesSuccess(data));
   } catch (err) {

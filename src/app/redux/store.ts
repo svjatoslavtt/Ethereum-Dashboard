@@ -1,5 +1,5 @@
 import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 
 import { reducer as AddressDataReducer } from './common/reducer';
 import { rootSaga } from './saga';
@@ -12,7 +12,11 @@ export type RootState = {
   addressData: AddressState;
 };
 
-const store = createStore(AddressDataReducer, applyMiddleware(sagaMiddleware));
+const rootReducers = combineReducers({
+  addressData: AddressDataReducer,
+});
+
+const store = createStore(rootReducers, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 

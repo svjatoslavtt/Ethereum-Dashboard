@@ -38,7 +38,7 @@ const Home: React.FC<HomeTypes> = ({ viewAddress }) => {
     history.push('/');
 
     if (!address) {
-      dispatch(Actions.clearPieChartData());
+      dispatch(Actions.handleClearData());
     }
   };
 

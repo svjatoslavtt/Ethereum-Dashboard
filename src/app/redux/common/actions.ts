@@ -15,7 +15,7 @@ export enum ActionTypes {
 
   SWITCH_ACCOUNT = 'SWITCH_ACCOUNT',
 
-  CLEAR_PIE_CHART_DATA = 'CLEAR_PIE_CHART_DATA',
+  CLEAR_DATA = 'CLEAR_DATA',
 }
 
 export const Actions = {
@@ -37,7 +37,7 @@ export const Actions = {
   switchAccount: (payload: { address: string }) =>
     action(ActionTypes.SWITCH_ACCOUNT, payload),
 
-  clearPieChartData: () => action(ActionTypes.CLEAR_PIE_CHART_DATA),
+  handleClearData: () => action(ActionTypes.CLEAR_DATA),
 };
 
 export type ActionTypesUnion = ActionType<typeof Actions>;

@@ -35,7 +35,7 @@ export const reducer = (
         ...state,
         address: action.payload.address,
       };
-    case ActionTypes.CLEAR_PIE_CHART_DATA:
+    case ActionTypes.CLEAR_DATA:
       return {
         ...state,
         pieChartData: [],

@@ -3,6 +3,7 @@ import { all, call, put, takeEvery } from 'redux-saga/effects';
 import { Actions, ActionTypes, ActionTypesUnion } from './actions';
 
 import { request } from '../../shared/utils/request';
+import { AddressPayloadType } from '../../shared/types/address.types';
 
 function* login() {
   try {
@@ -21,7 +22,7 @@ function* getTokens(action: {
 }) {
   try {
     const { address } = action.payload;
-    const { data } = yield call(
+    const { data }: { data: AddressPayloadType } = yield call(
       request,
       `https://api.covalenthq.com/v1/1/address/${address}/balances_v2/`
     );

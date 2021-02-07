@@ -4,12 +4,12 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { reducer as AddressDataReducer } from './common/reducer';
 import { rootSaga } from './saga';
 
-import { AddressState } from '../shared/types/address.types';
+import { AddressStateType } from '../shared/types/address.types';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export type RootState = {
-  addressData: AddressState;
+  addressData: AddressStateType;
 };
 
 const rootReducers = combineReducers({

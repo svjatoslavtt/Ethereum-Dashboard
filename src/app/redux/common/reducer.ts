@@ -1,8 +1,11 @@
 import { ActionTypes, ActionTypesUnion } from './actions';
 
-import { AddressState } from '../../shared/types/address.types';
+import {
+  AddressStateType,
+  TokenItemType,
+} from '../../shared/types/address.types';
 
-const addressDataInitialState: AddressState = {
+const addressDataInitialState: AddressStateType = {
   ethBalance: 0,
   pieChartData: [],
   tokens: null,
@@ -57,13 +60,13 @@ export const reducer = (
       const filteredItems =
         items &&
         items.length &&
-        items.filter((item: any, idx: number) => idx < 10 && item);
+        items.filter((item: TokenItemType, idx: number) => idx < 10 && item);
 
       const findEthToken = items.find(
-        (item: any) => item.contract_ticker_symbol === 'ETH'
+        (item: TokenItemType) => item.contract_ticker_symbol === 'ETH'
       );
 
-      const pieChartData = items.map((item: any) => ({
+      const pieChartData = items.map((item: TokenItemType) => ({
         value: item.quote,
         title: item.contract_ticker_symbol,
         color:

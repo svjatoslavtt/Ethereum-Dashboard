@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Actions } from '../../../redux/common/actions';
-import { getAddress } from '../../../redux/common/selectors';
+import { getAddress, getTokens } from '../../../redux/common/selectors';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const params: { address: string } = useParams();
 
   const address = useSelector(getAddress);
+  const tokens = useSelector(getTokens);
 
   const { ethereum } = window as any;
 
@@ -48,6 +49,12 @@ const Header: React.FC = () => {
       dispatch(Actions.getBalancesRequest({ address }));
     }
   }, [address, dispatch, params.address]);
+
+  useEffect(() => {
+    if (!address && !params.address && tokens) {
+      dispatch(Actions.handleClearData());
+    }
+  }, [address, dispatch, params.address, tokens]);
 
   return (
     <header className='w-full max-w-screen-xl mx-auto flex justify-between items-center h-20 px-5 mb-10'>
